@@ -1,17 +1,15 @@
 {
 	"schemaVersion": 1,
 	"id": "afkscoreboard",
-	"version": "${version}",
+	"version": "${mod_version}",
 	"name": "AFKScoreboard",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
+	"description": "Puts the player's AFK status into a scoreboard objective",
+	"authors": ["RedPolygon"],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://dantevg.nl/mods-plugins/AFKScoreboard/",
+		"sources": "https://github.com/Dantevg/AFKScoreboard-fabric"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/afkscoreboard/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -20,29 +18,18 @@
 				"value": "nl.dantevg.afkscoreboard.AFKScoreboard",
 				"adapter": "kotlin"
 			}
-		],
-		"client": [
-			{
-				"value": "nl.dantevg.afkscoreboard.AFKScoreboardClient",
-				"adapter": "kotlin"
-			}
 		]
 	},
 	"mixins": [
-		"afkscoreboard.mixins.json",
-		{
-			"config": "afkscoreboard.client.mixins.json",
-			"environment": "client"
-		}
+		"afkscoreboard.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15.11",
-		"minecraft": "~1.21",
+		"fabricloader": ">=${project.loader_version}",
+		"minecraft": "~${project.minecraft_version}",
 		"java": ">=21",
 		"fabric-api": "*",
-		"fabric-language-kotlin": "*"
+		"fabric-language-kotlin": "*",
+		"afkplus": ">=1.5.0"
 	},
-	"suggests": {
-		"another-mod": "*"
-	}
+	"suggests": {}
 }

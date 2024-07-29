@@ -3,7 +3,7 @@
 	"package": "nl.dantevg.afkscoreboard.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"AfkPlayerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
