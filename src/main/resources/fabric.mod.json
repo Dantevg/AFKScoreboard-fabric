@@ -29,7 +29,7 @@
 		"java": ">=21",
 		"fabric-api": "*",
 		"fabric-language-kotlin": "*",
-		"afkplus": ">=1.5.0"
+		"afkplus": ">=1.5.3"
 	},
 	"suggests": {}
 }

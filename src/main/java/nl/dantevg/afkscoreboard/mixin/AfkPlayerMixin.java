@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = ServerPlayerEntity.class, priority = 1500)
 public abstract class AfkPlayerMixin {
 	@TargetHandler(
-			mixin = "com.github.sakuraryoko.afkplus.mixin.ServerPlayerEntityMixin",
+			mixin = "com.sakuraryoko.afkplus.mixin.MixinServerPlayer",
 			name = "setAfk"
 	)
 	@Inject(method = "@MixinSquared:Handler", at = @At("TAIL"))
