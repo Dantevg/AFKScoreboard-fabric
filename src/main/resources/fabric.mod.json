@@ -20,9 +20,7 @@
 			}
 		]
 	},
-	"mixins": [
-		"afkscoreboard.mixins.json"
-	],
+	"mixins": [],
 	"depends": {
 		"fabricloader": ">=${project.loader_version}",
 		"minecraft": "~${project.minecraft_version}",

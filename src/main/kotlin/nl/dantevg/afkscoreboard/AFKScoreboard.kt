@@ -1,12 +1,12 @@
 package nl.dantevg.afkscoreboard
 
+import com.sakuraryoko.afkplus.api.AfkPlusEvents
 import net.fabricmc.api.ModInitializer
 import net.minecraft.scoreboard.Scoreboard
 import net.minecraft.scoreboard.ScoreboardCriterion
 import net.minecraft.scoreboard.ScoreboardObjective
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Text
-import nl.dantevg.afkscoreboard.event.AfkStatusChangeCallback
 import org.slf4j.LoggerFactory
 
 object AFKScoreboard : ModInitializer {
@@ -16,7 +16,8 @@ object AFKScoreboard : ModInitializer {
 	private val logger = LoggerFactory.getLogger(MOD_ID)
 	
 	override fun onInitialize() {
-		AfkStatusChangeCallback.EVENT.register(::onAfkStatusChange)
+		AfkPlusEvents.AFK_EVENT.register { player, reason -> onAfkStatusChange(player, true) }
+		AfkPlusEvents.AFK_RETURN_EVENT.register { player, duration -> onAfkStatusChange(player, false) }
 	}
 	
 	private fun onAfkStatusChange(player: ServerPlayerEntity, isAfk: Boolean) {
