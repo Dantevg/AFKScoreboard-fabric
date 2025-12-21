@@ -22,12 +22,13 @@ object AFKScoreboard : ModInitializer {
 	
 	private fun onAfkStatusChange(player: ServerPlayerEntity, isAfk: Boolean) {
 		val objective = getObjective(player)
-		val score = player.scoreboard.getOrCreateScore(player, objective)
+		val score = player.entityWorld.scoreboard.getOrCreateScore(player, objective)
 		score.score = if (isAfk) 1 else 0
 	}
 	
 	private fun getObjective(player: ServerPlayerEntity): ScoreboardObjective =
-		player.scoreboard.getNullableObjective(OBJECTIVE_NAME) ?: initObjective(player.scoreboard)
+		player.entityWorld.scoreboard.getNullableObjective(OBJECTIVE_NAME)
+			?: initObjective(player.entityWorld.scoreboard)
 	
 	private fun initObjective(scoreboard: Scoreboard): ScoreboardObjective =
 		scoreboard.addObjective(
